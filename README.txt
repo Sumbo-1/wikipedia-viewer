@@ -1,3 +1,5 @@
-A Pen created at CodePen.io. You can find this one at http://codepen.io/themalni/pen/aBOzVb.
+This Wikipedia Viewer is one of the Intermediate Front End Development projects for Free Code Camp.
 
- Project as a part of FreeCodeCamp challenges.
+Visit [Free Code Camp ]( https://www.freecodecamp.com) to learn web development for free.
+
+Live preview: https://themalni.github.io/weather-app/
