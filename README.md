@@ -1,8 +1,10 @@
-This Wikipedia Viewer is one of the Intermediate Front End Development projects for Free Code Camp.
+<h1 align="center">Wikipedia Viewer</h1><br>
+<p align="center">This is one of the Intermediate Front End Development projects for Free Code Camp.<br>
+Visit <a href="https://www.freecodecamp.com">Free Code Camp</a> to learn web development for free.<br>
 
-Visit [Free Code Camp ]( https://www.freecodecamp.com) to learn web development for free.
+Live preview: <a href="https://themalni.github.io/wikipedia-viewer/">Wikipedia Viewer</a><br></p>
 
-Live preview: https://themalni.github.io/wikipedia-viewer/
-
-![screen shot 2016-11-08 at 10 47 17](https://cloud.githubusercontent.com/assets/12295765/20094301/eb2e8212-a5a0-11e6-80f4-c325f3db802f.png)
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/12295765/20094301/eb2e8212-a5a0-11e6-80f4-c325f3db802f.png" width="600" alt="Wikipedia Viewer">
+</p>
 
