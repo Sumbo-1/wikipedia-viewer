@@ -23,7 +23,7 @@ function setSearchText(searchValue) {
     entries.innerHTML = "";
     result.innerHTML = "";
     loader.style.display = "block";
-    getArticle(searchValue);
+    getArticles(searchValue);
   }
 }
 
@@ -42,29 +42,30 @@ function checkHits(hits) {
 }
 
 // Get article data
-function getArticle(searchValue){
+function getArticles(searchValue){
   $.ajax("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&list=search&titles="+ searchValue +"&rvprop=content&srsearch="+ searchValue +"&srlimit=8&srinfo=totalhits&srprop=snippet", {
     dataType: "jsonp" })
 
     .done(function(data){
 
-      var searchLength = data.query.search;
+      var searchResults = data.query.search;
       var totalHits = data.query.searchinfo.totalhits;
 
       // Show message if article doesn't exist
       checkHits(totalHits);
 
       // Check length of the title
-      for(var i = 0; i < searchLength.length; i++){
-        var title = searchLength[i].title;
+      for(var i = 0; i < searchResults.length; i++){
+        var result = searchResults[i];
+        var title = result.title;
         var url = "https://en.wikipedia.org/wiki/" + title.replace(/\s/g, "_");
 
         // Truncate article title
         var maxTitleLength = 34;
-        title = truncateTitle(searchLength[i].title, maxTitleLength);
+        var shortTitle = truncateTitle(title, maxTitleLength);
 
         // Display articles on the page
-        var entryData = "<h2 class='entry-header'>" + title + "</h2>" + "<p>" + searchLength[i].snippet + "..." + "</p>";
+        var entryData = "<h2 class='entry-header'>" + shortTitle + "</h2>" + "<p>" + result.snippet + "..." + "</p>";
 
         // Create entry-container
         var entryContainer = document.createElement("div");
