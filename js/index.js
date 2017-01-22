@@ -34,6 +34,13 @@ function truncateTitle(title, max) {
   return title;
 }
 
+function checkHits(hits) {
+  if(hits == 0){
+    result.innerHTML = "No result found, please enter another request.";
+    loader.style.display = "none";
+  }
+}
+
 // Get article data
 function getArticle(searchValue){
   $.ajax("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&list=search&titles="+ searchValue +"&rvprop=content&srsearch="+ searchValue +"&srlimit=8&srinfo=totalhits&srprop=snippet", {
@@ -42,14 +49,10 @@ function getArticle(searchValue){
     .done(function(data){
 
       var searchLength = data.query.search;
-      var checkHits = data.query.searchinfo.totalhits;
+      var totalHits = data.query.searchinfo.totalhits;
 
       // Show message if article doesn't exist
-      if(checkHits == 0){
-        result.innerHTML = "No result found, please enter another request.";
-        loader.style.display = "none";
-        console.log("Not found");
-      }
+      checkHits(totalHits);
 
       // Check length of the title
       for(var i = 0; i < searchLength.length; i++){
