@@ -22,7 +22,7 @@ function setSearchText(searchValue) {
   } else {
     entries.innerHTML = "";
     result.innerHTML = "";
-    loader.style.display = "block";
+    displayLoader(true);
     getArticles(searchValue);
   }
 }
@@ -37,8 +37,12 @@ function truncateTitle(title, max) {
 function checkHits(hits) {
   if(hits == 0){
     result.innerHTML = "No result found, please enter another request.";
-    loader.style.display = "none";
+    displayLoader(false);
   }
+}
+
+function displayLoader(isLoaderVisible) {
+  loader.style.display = isLoaderVisible ? "block" : "none";
 }
 
 // Get article data
@@ -90,6 +94,6 @@ function getArticles(searchValue){
         entryContainer.appendChild(a);
         a.appendChild(entryOverly);
       }
-      loader.style.display = "none";
+      displayLoader(false);
     });
 }
