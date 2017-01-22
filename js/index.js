@@ -3,46 +3,37 @@ var searchButton = document.querySelector(".search-btn");
 var entries = document.querySelector(".entries");
 var loader = document.querySelector(".loader");
 var result = document.querySelector(".result");
-var searchValue = "";
 
 // Send text to search
 searchTerm.onkeypress = function(event){
-
   if(event.which === 13){
     event.preventDefault();
-    searchValue = searchTerm.value;
-
-    if(searchValue == ""){
-      result.innerHTML = "Please enter a text to search!";
-    } else {
-      entries.innerHTML = "";
-      result.innerHTML = "";
-      loader.style.display = "block";
-      getArticle();
-    }
+    setSearchText(searchTerm.value);
   }
 };
 
 searchButton.onclick = function(){
-  searchValue = searchTerm.value;
+  setSearchText(searchTerm.value);
+};
 
+function setSearchText(searchValue) {
   if(searchValue == ""){
     result.innerHTML = "Please enter a text to search!";
   } else {
     entries.innerHTML = "";
     result.innerHTML = "";
     loader.style.display = "block";
-    getArticle();
+    getArticle(searchValue);
   }
-};
+}
 
 // Get article data
-function getArticle(){
+function getArticle(searchValue){
   $.ajax("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&list=search&titles="+ searchValue +"&rvprop=content&srsearch="+ searchValue +"&srlimit=8&srinfo=totalhits&srprop=snippet", {
     dataType: "jsonp" })
 
     .done(function(data){
-      
+
       var searchLength = data.query.search;
       var checkHits = data.query.searchinfo.totalhits;
 
