@@ -5,93 +5,92 @@ var loader = document.querySelector(".loader");
 var result = document.querySelector(".result");
 var searchValue = "";
 
- // Send text to search
-    searchTerm.onkeypress = function(event){
-      
-          if(event.which === 13){
-            searchValue = searchTerm.value;
-            event.preventDefault();
-            
-              if(searchValue == ""){   
-                  result.innerHTML = "Please enter a text to search!";
-                }else{
-                  entries.innerHTML = "";
-                  result.innerHTML = "";
-                  loader.style.display = "block";
-                  getArticle();
-                }
-          }
-        }
-    
-    searchButton.onclick = function(){
-      searchValue = searchTerm.value;
-      
-        if(searchValue == ""){ 
-            result.innerHTML = "Please enter a text to search!";
-          }else{
-            entries.innerHTML = "";
-            result.innerHTML = "";
-            loader.style.display = "block";
-            getArticle(); 
-          }
+// Send text to search
+searchTerm.onkeypress = function(event){
+
+  if(event.which === 13){
+    event.preventDefault();
+    searchValue = searchTerm.value;
+
+    if(searchValue == ""){
+      result.innerHTML = "Please enter a text to search!";
+    } else {
+      entries.innerHTML = "";
+      result.innerHTML = "";
+      loader.style.display = "block";
+      getArticle();
     }
-        
-  // Get article data    
-  function getArticle(){
-    $.ajax("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&list=search&titles="+ searchValue +"&rvprop=content&srsearch="+ searchValue +"&srlimit=8&srinfo=totalhits&srprop=snippet", {
-      dataType: "jsonp" })
-           
-      .done(function(data){
-    
-        var searchLength = data.query.search;
-        var checkHits = data.query.searchinfo.totalhits;
+  }
+};
 
-          // Show message if article doesn't exist
-          if(checkHits == 0){
-            result.innerHTML = "No result found, please enter another request.";
-            loader.style.display = "none";
-            console.log("Not found");
-          }
+searchButton.onclick = function(){
+  searchValue = searchTerm.value;
 
-          // Check length of the title
-          for(var i = 0; i < searchLength.length; i++){
-            var title = searchLength[i].title;
-            var shortTitle = "";
-            var url = "https://en.wikipedia.org/wiki/" + title.replace(/\s/g, "_");
-              
-              // Truncate article title
-              if(title.length > 34){
-                  shortTitle = title.slice(0, 34) + "...";
-                  title = shortTitle;
-                }
+  if(searchValue == ""){
+    result.innerHTML = "Please enter a text to search!";
+  } else {
+    entries.innerHTML = "";
+    result.innerHTML = "";
+    loader.style.display = "block";
+    getArticle();
+  }
+};
 
-          // Display articles on the page
-          var entryData = "<h2 class='entry-header'>" + title + "</h2>" + 
-                             "<p>" + searchLength[i].snippet + "..." + "</p>";
+// Get article data
+function getArticle(){
+  $.ajax("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&list=search&titles="+ searchValue +"&rvprop=content&srsearch="+ searchValue +"&srlimit=8&srinfo=totalhits&srprop=snippet", {
+    dataType: "jsonp" })
 
-          // Create entry-container 
-          var entryContainer = document.createElement("div");
-              entryContainer.className = "entry-container";
-              entries.appendChild(entryContainer);
+    .done(function(data){
+      
+      var searchLength = data.query.search;
+      var checkHits = data.query.searchinfo.totalhits;
 
-          // Create entry                         
-          var div = document.createElement("div");
-              div.className = "entry";
-              div.innerHTML = entryData;
-              entryContainer.appendChild(div);
+      // Show message if article doesn't exist
+      if(checkHits == 0){
+        result.innerHTML = "No result found, please enter another request.";
+        loader.style.display = "none";
+        console.log("Not found");
+      }
 
-          // Create entry-overly                         
-          var entryOverly = document.createElement("div");
-              entryOverly.className = "entry-overly";
-              entryOverly.innerHTML = "Read Article"; 
+      // Check length of the title
+      for(var i = 0; i < searchLength.length; i++){
+        var title = searchLength[i].title;
+        var shortTitle = "";
+        var url = "https://en.wikipedia.org/wiki/" + title.replace(/\s/g, "_");
 
-          // Create article link
-          var a = document.createElement("a");
-              a.href = url;
-              a.target ="_blank";
-              entryContainer.appendChild(a);
-              a.appendChild(entryOverly);
-      } 
-     loader.style.display = "none";
-   });
+        // Truncate article title
+        if(title.length > 34){
+          shortTitle = title.slice(0, 34) + "...";
+          title = shortTitle;
+        }
+
+        // Display articles on the page
+        var entryData = "<h2 class='entry-header'>" + title + "</h2>" + "<p>" + searchLength[i].snippet + "..." + "</p>";
+
+        // Create entry-container
+        var entryContainer = document.createElement("div");
+        entryContainer.className = "entry-container";
+        entries.appendChild(entryContainer);
+
+        // Create entry
+        var div = document.createElement("div");
+        div.className = "entry";
+        div.innerHTML = entryData;
+        entryContainer.appendChild(div);
+
+        // Create entry-overly
+        var entryOverly = document.createElement("div");
+        entryOverly.className = "entry-overly";
+        entryOverly.innerHTML = "Read Article";
+
+        // Create article link
+        var a = document.createElement("a");
+        a.href = url;
+        a.target ="_blank";
+        entryContainer.appendChild(a);
+        a.appendChild(entryOverly);
+      }
+      loader.style.display = "none";
+    });
 }
