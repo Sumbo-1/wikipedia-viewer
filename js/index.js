@@ -27,6 +27,13 @@ function setSearchText(searchValue) {
   }
 }
 
+function truncateTitle(title, max) {
+  if(title.length > max){
+    return title.slice(0, max) + "...";
+  }
+  return title;
+}
+
 // Get article data
 function getArticle(searchValue){
   $.ajax("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&list=search&titles="+ searchValue +"&rvprop=content&srsearch="+ searchValue +"&srlimit=8&srinfo=totalhits&srprop=snippet", {
@@ -47,14 +54,11 @@ function getArticle(searchValue){
       // Check length of the title
       for(var i = 0; i < searchLength.length; i++){
         var title = searchLength[i].title;
-        var shortTitle = "";
         var url = "https://en.wikipedia.org/wiki/" + title.replace(/\s/g, "_");
 
         // Truncate article title
-        if(title.length > 34){
-          shortTitle = title.slice(0, 34) + "...";
-          title = shortTitle;
-        }
+        var maxTitleLength = 34;
+        title = truncateTitle(searchLength[i].title, maxTitleLength);
 
         // Display articles on the page
         var entryData = "<h2 class='entry-header'>" + title + "</h2>" + "<p>" + searchLength[i].snippet + "..." + "</p>";
