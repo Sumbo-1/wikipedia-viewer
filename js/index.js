@@ -29,9 +29,12 @@ function setSearchText(searchValue) {
 
 function truncateTitle(title, max) {
   if(title.length > max){
-    return title.slice(0, max) + "...";
+    var shortenedTitle = title.slice(0, max) + "...";
+    return shortenedTitle;
+    console.log("This title is " + tilte.length + " long");
   }
   return title;
+  console.log("This title is " + tilte.length + " long");
 }
 
 function checkHits(hits) {
