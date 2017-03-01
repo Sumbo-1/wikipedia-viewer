@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-} 
+}
 .loader {
   display: none;
   width: 50px;
@@ -123,7 +123,7 @@ main .text {
   display: block;
   padding: 83px 0 73px;
   width: 100%;
-  background-color: rgba(56, 181, 193, 0.9); 
+  background-color: rgba(56, 181, 193, 0.9);
   border: 2px solid #38b5c1;
   color: #fff;
   font-size: 2em;
@@ -232,7 +232,7 @@ footer .credits {
     width: 320px;
   }
   .fa.fa-search {
-    right: 10px; 
+    right: 10px;
   }
    form {
     width: 320px;
@@ -249,5 +249,4 @@ footer .credits {
   input:focus {
     font-size: 1.1em;
   }
-}  
-  
+}
