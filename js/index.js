@@ -65,7 +65,7 @@ function getArticles(searchValue){
         var url = "https://en.wikipedia.org/wiki/" + title.replace(/\s/g, "_");
 
         // Truncate article title
-        var maxTitleLength = 34;
+        var maxTitleLength = 30;
         var shortTitle = truncateTitle(title, maxTitleLength);
 
         // Display articles on the page
