@@ -30,10 +30,8 @@ function setSearchText(searchValue) {
 function truncateTitle(title, max) {
   if(title.length > max){
     var shortenedTitle = title.slice(0, max) + "...";
-    console.log("This title is " + shortenedTitle.length + " long");
     return shortenedTitle;
   }
-  console.log("This title is " + title.length + " long");
   return title;
 }
 
