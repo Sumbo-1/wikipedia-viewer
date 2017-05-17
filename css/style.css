@@ -240,8 +240,8 @@ footer .credits {
     right: 7%;
   }
    form {
-    width: 320px;
-    }
+    max-width: 90%;
+  }
   .entry-overly {
     padding: 83px 0 80px;
   }
