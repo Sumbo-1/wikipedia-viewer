@@ -241,13 +241,6 @@ footer .credits {
   }
    form {
     width: 90%;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .entries {
-    top: 7em;
   }
   .entry-overly {
     padding: 83px 0 80px;
@@ -261,15 +254,4 @@ footer .credits {
   input:focus {
     font-size: 1.1em;
   }
-  
-  @keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(7em);
-  }
-}
 }
