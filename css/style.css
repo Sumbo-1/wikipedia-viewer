@@ -266,7 +266,7 @@ footer .credits {
   }
   100% {
     opacity: 1;
-    transform: translateY(10%);
+    transform: translateY(7em);
   }
 }
 }
