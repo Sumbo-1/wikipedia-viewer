@@ -241,6 +241,10 @@ footer .credits {
   }
    form {
     max-width: 90%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .entry-overly {
     padding: 83px 0 80px;
