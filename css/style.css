@@ -233,9 +233,6 @@ footer .credits {
   main {
     padding-bottom: 2em;
   }
- /* main input {
-    width: 100%;
-  }*/
   .fa.fa-search {
     right: 10px;
   }
@@ -244,8 +241,12 @@ footer .credits {
   }
   input {
     font-size: 1.1em;
-    }
+  }
+  form {
+    width: 90%; 
+  }
   main .text {
+    width: 100%;
     font-size: 1.1em;
   }
   input:focus {
