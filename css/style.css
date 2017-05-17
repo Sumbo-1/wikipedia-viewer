@@ -64,7 +64,8 @@ header h3 {
 
 /*  Main  */
 main {
-  padding-bottom: 3em;
+  min-height: 250px;
+  padding-bottom: 6em;
 }
 .search-container {
   max-width: 520px;
@@ -165,8 +166,6 @@ footer {
   width: 100%;
   padding: 1em 0;
   background-color: #38b5c1;
-  position: absolute;
-  bottom: 0;
 }
 footer .credits {
   text-align: center;
