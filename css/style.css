@@ -249,6 +249,9 @@ footer .credits {
   .entry-overly {
     padding: 83px 0 80px;
   }
+  .entry {
+    top: 3em; 
+  }
   input {
     font-size: 1.1em;
     }
