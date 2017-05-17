@@ -222,7 +222,7 @@ footer .credits {
     font-size: 1.6em;
   }
   .search-container {
-  max-width: 300px;
+  max-width: 90%;
   margin: 2em auto 0;
   }
   .search-btn {
@@ -231,12 +231,13 @@ footer .credits {
   }
   main {
     min-height: 100px; 
+    padding-bottom: 2em;
   }
   main input {
     width: 320px;
   }
   .fa.fa-search {
-    right: 10px;
+    right: 7%;
   }
    form {
     width: 320px;
