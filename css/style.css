@@ -233,14 +233,11 @@ footer .credits {
   main {
     padding-bottom: 2em;
   }
-  main input {
+ /* main input {
     width: 100%;
-  }
+  }*/
   .fa.fa-search {
     right: 10px;
-  }
-   form {
-    width: 90%;
   }
   .entry-overly {
     padding: 83px 0 80px;
