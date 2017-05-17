@@ -162,9 +162,11 @@ main .text {
 
 /*  Footer  */
 footer {
-  margin: 0;
+  width: 100%;
   padding: 1em 0;
   background-color: #38b5c1;
+  position: absolute;
+  bottom: 0;
 }
 footer .credits {
   text-align: center;
