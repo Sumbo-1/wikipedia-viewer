@@ -230,17 +230,16 @@ footer .credits {
     margin: 1em auto;
   }
   main {
-    min-height: 100px; 
     padding-bottom: 2em;
   }
   main input {
-    width: 320px;
+    width: 100%;
   }
   .fa.fa-search {
     right: 7%;
   }
    form {
-    max-width: 90%;
+    width: 90%;
     position: absolute;
     top: 0;
     left: 50%;
