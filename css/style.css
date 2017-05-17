@@ -247,6 +247,7 @@ footer .credits {
     transform: translateX(-50%);
   }
   .entry-overly {
+    top: 7em;
     padding: 83px 0 80px;
   }
   input {
