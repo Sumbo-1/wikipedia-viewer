@@ -222,12 +222,15 @@ footer .credits {
     font-size: 1.6em;
   }
   .search-container {
-  max-width: 320px;
+  max-width: 300px;
   margin: 2em auto 0;
   }
   .search-btn {
     display: block;
     margin: 1em auto;
+  }
+  main {
+    min-height: 100px; 
   }
   main input {
     width: 320px;
