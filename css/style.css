@@ -66,6 +66,7 @@ header h3 {
 main {
   min-height: 150px;
   padding-bottom: 6em;
+  position: relative;
 }
 .search-container {
   max-width: 520px;
@@ -236,7 +237,7 @@ footer .credits {
     width: 100%;
   }
   .fa.fa-search {
-    right: 7%;
+    right: 10px;
   }
    form {
     width: 90%;
