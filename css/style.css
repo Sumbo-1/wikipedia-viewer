@@ -137,9 +137,10 @@ main .text {
   left: 0;
   opacity: 0;
   cursor: pointer;
+  transition: all 0.3s linear;
 }
 .entry-overly:hover {
-  animation: fadeInStatic 0.3s linear forwards;
+  /*animation: fadeInStatic 0.3s linear forwards;*/
 }
 .entry a {
   text-decoration: none;
